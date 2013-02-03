@@ -1,0 +1,67 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+// I belive this is the wrong way to do this.
+
+var footnoteIds;
+var nFootnotes;
+var footnotesEnabled;
+init();
+
+function init() {
+  footnotesEnabled = false;
+  footnoteIds = eval($('#footnote_ids_hidden').html());
+  nFootnotes = footnoteIds.length;
+  setUpListeners();
+  $('#enable_link').on('click', function(eventObject) {
+    eventObject.preventDefault();
+    footnotesEnabled = !footnotesEnabled;
+    enableFootnotes(footnotesEnabled);
+  });
+}
+
+function setUpListeners() {
+  console.log("setUpListeners()");
+  var i;
+  for (i = 0; i < nFootnotes; i++) {
+    var footnoteClick = footnoteClickFactory(i);
+    $("#footnote_link" + i).on("click", footnoteClick);
+  }
+}
+
+function footnoteClickFactory(footnote_index) {
+  console.log("footnoteClickFactory()");
+  return function(eventObject) {
+    eventObject.preventDefault();
+    if (footnotesEnabled) {
+      hideAllFootnotes();
+      showFootnote(footnote_index);
+    }
+  };
+}
+
+function hideAllFootnotes() {
+  console.log("hideAllFootnotes()");
+  for (i = 0; i < nFootnotes; i++) {
+    $("#footnote_" + footnoteIds[i]).fadeOut(0);
+  }
+}
+
+function showFootnote(footnote_index) {
+  console.log("showFootnote("+footnote_index+")");
+  $("#footnote_" + footnoteIds[footnote_index]).fadeIn(300);
+}
+
+function enableFootnotes(enable) {
+  if (enable) {
+    $(".footnote_link").addClass('enabled').removeClass('disabled');
+    $("#container").animate({width: "900px"}, 500);
+    $("#enable_link").html('Disable tangents');
+  } else {
+    hideAllFootnotes();
+    $(".footnote_link").removeClass('enabled').addClass('disabled');
+    $("#container").animate({width: "600px"}, 500);
+    $("#enable_link").html('Enable tangents');
+  }
+}

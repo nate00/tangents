@@ -4,3 +4,10 @@
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
+
+<h4>Tangents</h4>
+<div id="footnotes">
+  <%= render @post.footnotes %>
+</div>
+
+<%= render :file => 'footnotes/new' %>

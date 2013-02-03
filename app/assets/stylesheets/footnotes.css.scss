@@ -1,3 +1,22 @@
 // Place all the styles related to the Footnotes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#footnotes {
+  float: right;
+  width: 275px;
+}
+
+.footnote {
+  display: none;
+}
+
+a.footnote_link.enabled {
+  color: #003366;
+  text-decoration: underline;
+}
+
+a.footnote_link.disabled {
+  color: #333333;
+  text-decoration: none;
+}

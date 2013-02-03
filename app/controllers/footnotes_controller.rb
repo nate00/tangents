@@ -1,4 +1,6 @@
 class FootnotesController < ApplicationController
+  before_filter :load_post
+
   # GET /footnotes
   # GET /footnotes.json
   def index
@@ -40,16 +42,12 @@ class FootnotesController < ApplicationController
   # POST /footnotes
   # POST /footnotes.json
   def create
-    @footnote = Footnote.new(params[:footnote])
+    @footnote = @post.footnotes.new(params[:footnote])
 
-    respond_to do |format|
-      if @footnote.save
-        format.html { redirect_to @footnote, notice: 'Footnote was successfully created.' }
-        format.json { render json: @footnote, status: :created, location: @footnote }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @footnote.errors, status: :unprocessable_entity }
-      end
+    if @footnote.save
+      redirect_to edit_post_path(@post), notice: 'Tangent added successfully'
+    else
+      redirect_to @post, alert: 'Unable to add tangent'
     end
   end
 
@@ -80,4 +78,9 @@ class FootnotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def load_post
+      @post = Post.find(params[:post_id])
+    end
 end

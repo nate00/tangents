@@ -1,8 +1,7 @@
 Tangents::Application.routes.draw do
-  resources :footnotes
-
-
-  resources :posts
+  resources :posts do
+    resources :footnotes
+  end
 
 
   # The priority is based upon order of creation:

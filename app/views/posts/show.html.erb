@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p><a href="#" id="enable_link">Enable tangents</a></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<%= render @post %>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div id="footnotes">
+  <%= render @post.footnotes %>
+</div>

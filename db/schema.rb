@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202080010) do
+ActiveRecord::Schema.define(:version => 20130202152556) do
 
   create_table "footnotes", :force => true do |t|
     t.text     "body"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130202080010) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "post_id"
+    t.string   "link_text"
   end
 
   create_table "posts", :force => true do |t|

@@ -3,12 +3,18 @@
 <head>
   <title>Tangents</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="container">
+  <span>
+    <h1 id="title">Tangents</h1>
+  </span>
+  <%= yield %>
+</div>
 
 </body>
+  <%= javascript_include_tag "application" %>
 </html>

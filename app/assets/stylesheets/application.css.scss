@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  background-color: #F8F8F8;
+  color: #333333;
+}
+
+* {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+a {
+  color: #003366;
+}
+
+#title {
+  text-transform: uppercase;
+}
+
+#container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@font-face {
+    font: {
+       family: 'Capsuula';
+       weight: 'normal';
+       style: 'normal';
+    }
+    src: asset-url('Capsuula-webfont.eot', font);
+    src: asset-url('Capsuula-webfont.eot', font) format('embedded-opentype'),
+         asset-url('Capsuula-webfont.woff', font) format('woff'),
+         asset-url('Capsuula-webfont.ttf', font) format('truetype'),
+         asset-url('Capsuula-webfont.svg#CapsuulaRegular', font) format('svg')
+}
+
+/*
+@font-face {
+    font-family: 'capsuula';
+    src: url('Capsuula-webfont.eot');
+    src: url('Capsuula-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Capsuula-webfont.woff') format('woff'),
+         url('Capsuula-webfont.ttf') format('truetype'),
+         url('Capsuula-webfont.svg#CapsuulaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/

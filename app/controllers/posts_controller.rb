@@ -16,8 +16,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
+      puts "starting"
       format.html # show.html.erb
-      format.json { render json: @post }
+      puts "almost done"
+      format.js
+      puts "done"
     end
   end
 
